@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session xmlns="http://research.microsoft.com/chess">
+  <testlist name="SimpleBank" xmlns="http://research.microsoft.com/chess">
+    <build>
+      <startdir>Z:\steve\Projects\Talks\2010-06-16-NDC\CHESS\Demos\Atomicity\TestApp\..</startdir>
+      <executable>msbuild</executable>
+      <arg>Atomicity.sln</arg>
+      <arg>/p:Configuration=Debug</arg>
+    </build>
+    <!-- We use just a single test in this example -->
+    <test name="Test1">
+      <startdir>Z:\steve\Projects\Talks\2010-06-16-NDC\CHESS\Demos\Atomicity\TestApp\bin\Debug</startdir>
+      <executable>mchess</executable>
+      <carg>TestApp.exe</carg>
+      <carg>/it:Atomicity.Account</carg>
+      <carg>/it:Utils.Parallel</carg>
+      <run>
+        <carg>/detectraces</carg>
+        <name>Run/With Race Detection</name>
+        <backend>Local (4)</backend>
+        <taskindex>1</taskindex>
+        <taskid>0000001</taskid>
+        <testdir>Z:\steve\Projects\Talks\2010-06-16-NDC\CHESS\Demos\Atomicity\TestApp\taskdir.0000001</testdir>
+        <startscript>Z:\steve\Projects\Talks\2010-06-16-NDC\CHESS\Demos\Atomicity\TestApp\taskdir.0000001\start.cmd</startscript>
+        <pid>2900</pid>
+        <starttime>10/06/2010 16:53:34</starttime>
+        <results xmlns="http://research.microsoft.com/chess">
+          <starttime>Thu Jun 10 04:53:36 2010 PM</starttime>
+          <commandline>
+            <executable>mchess.exe</executable>
+            <startdir>Z:\steve\Projects\Talks\2010-06-16-NDC\CHESS\Demos\Atomicity\TestApp\bin\Debug</startdir>
+            <carg>TestApp.exe</carg>
+            <carg>/it:Atomicity.Account</carg>
+            <carg>/it:Utils.Parallel</carg>
+            <carg>/detectraces</carg>
+            <carg>/schedulefile:Z:\steve\Projects\Talks\2010-06-16-NDC\CHESS\Demos\Atomicity\TestApp\taskdir.0000001\inputschedule</carg>
+            <carg>/outputprefix:Z:\steve\Projects\Talks\2010-06-16-NDC\CHESS\Demos\Atomicity\TestApp\taskdir.0000001\</carg>
+          </commandline>
+          <result>
+            <label>E</label>
+            <description>ChessTest.Run returned false.</description>
+            <action name="Repro" />
+            <schedule format="hex">
+     01000000 01000000 12000000 01000000 FF010000 01000000 01000000 FF010000 12000000 01000000 02000000 05000000 01000000 03000000 05000000 01000000
+     02000000 09000000 01000000 03000000 09000000 02000000 02000000 06000000 02000000 08020000 13000000 03000000 03000000 06000000 03000000 08020000
+     13000000 03000000 08020000 14000000 03000000 03000000 07000000 02000000 08020000 14000000 02000000 02000000 07000000 01000000 02000000 08000000
+     01000000 03000000 08000000 01000000 08020000 13000000 01000000 08020000 13000000 03000000 01000000 00000000 01000000 FF010000 12000000 01000000
+     01000000 01000000 00000000 00000000 01000000 00000000 06000000 02000000 08000000
+    </schedule>
+            <run>
+              <name>Repro Error with Tracing</name>
+              <carg>/repro</carg>
+              <carg>/trace</carg>
+              <backend>Local (4)</backend>
+              <taskindex>2</taskindex>
+              <taskid>0000002</taskid>
+              <testdir>Z:\steve\Projects\Talks\2010-06-16-NDC\CHESS\Demos\Atomicity\TestApp\taskdir.0000002</testdir>
+              <startscript>Z:\steve\Projects\Talks\2010-06-16-NDC\CHESS\Demos\Atomicity\TestApp\taskdir.0000002\start.cmd</startscript>
+              <pid>2056</pid>
+              <starttime>10/06/2010 16:53:42</starttime>
+              <results xmlns="http://research.microsoft.com/chess">
+                <starttime>Thu Jun 10 04:53:44 2010 PM</starttime>
+                <commandline>
+                  <executable>mchess.exe</executable>
+                  <startdir>Z:\steve\Projects\Talks\2010-06-16-NDC\CHESS\Demos\Atomicity\TestApp\bin\Debug</startdir>
+                  <carg>TestApp.exe</carg>
+                  <carg>/it:Atomicity.Account</carg>
+                  <carg>/it:Utils.Parallel</carg>
+                  <carg>/detectraces</carg>
+                  <carg>/repro</carg>
+                  <carg>/trace</carg>
+                  <carg>/schedulefile:Z:\steve\Projects\Talks\2010-06-16-NDC\CHESS\Demos\Atomicity\TestApp\taskdir.0000002\inputschedule</carg>
+                  <carg>/outputprefix:Z:\steve\Projects\Talks\2010-06-16-NDC\CHESS\Demos\Atomicity\TestApp\taskdir.0000002\</carg>
+                  <schedule format="hex">
+     01000000 01000000 12000000 01000000 FF010000 01000000 01000000 FF010000 12000000 01000000 02000000 05000000 01000000 03000000 05000000 01000000
+     02000000 09000000 01000000 03000000 09000000 02000000 02000000 06000000 02000000 08020000 13000000 03000000 03000000 06000000 03000000 08020000
+     13000000 03000000 08020000 14000000 03000000 03000000 07000000 02000000 08020000 14000000 02000000 02000000 07000000 01000000 02000000 08000000
+     01000000 03000000 08000000 01000000 08020000 13000000 01000000 08020000 13000000 03000000 01000000 00000000 01000000 FF010000 12000000 01000000
+     01000000 01000000 00000000 00000000 01000000 00000000 06000000 02000000 08000000
+    </schedule>
+                </commandline>
+                <result>
+                  <label>E</label>
+                  <description>ChessTest.Run returned false.</description>
+                  <action name="View" />
+                  <action name="Repro" />
+                  <schedule format="hex">
+     01000000 01000000 12000000 01000000 FF010000 01000000 01000000 FF010000 12000000 01000000 02000000 05000000 01000000 03000000 05000000 01000000
+     02000000 09000000 01000000 03000000 09000000 02000000 02000000 06000000 02000000 08020000 13000000 03000000 03000000 06000000 03000000 08020000
+     13000000 03000000 08020000 14000000 03000000 03000000 07000000 02000000 08020000 14000000 02000000 02000000 07000000 01000000 02000000 08000000
+     01000000 03000000 08000000 01000000 08020000 13000000 01000000 08020000 13000000 03000000 01000000 00000000 01000000 FF010000 12000000 01000000
+     01000000 01000000 00000000 00000000 01000000 00000000 06000000 02000000 08000000
+    </schedule>
+                  <preemptionmethod>Atomicity.Account.Credit</preemptionmethod>
+                </result>
+                <endtime>Thu Jun 10 04:53:45 2010 PM</endtime>
+                <action name="Repro Last Schedule" />
+                <schedule format="hex">
+   01000000 01000000 12000000 01000000 FF010000 01000000 01000000 FF010000 12000000 01000000 02000000 05000000 01000000 03000000 05000000 01000000
+   02000000 09000000 01000000 03000000 09000000 02000000 02000000 06000000 02000000 08020000 13000000 03000000 03000000 06000000 03000000 08020000
+   13000000 03000000 08020000 14000000 03000000 03000000 07000000 02000000 08020000 14000000 02000000 02000000 07000000 01000000 02000000 08000000
+   01000000 03000000 08000000 01000000 08020000 13000000 01000000 08020000 13000000 03000000 01000000 00000000 01000000 FF010000 12000000 01000000
+   01000000 01000000 00000000 00000000 01000000 00000000 06000000 02000000 08000000</schedule>
+                <action name="Repeat">
+                  <schedule format="hex">
+     01000000 01000000 12000000 01000000 FF010000 01000000 01000000 FF010000 12000000 01000000 02000000 05000000 01000000 03000000 05000000 01000000
+     02000000 09000000 01000000 03000000 09000000 02000000 02000000 06000000 02000000 08020000 13000000 03000000 03000000 06000000 03000000 08020000
+     13000000 03000000 08020000 14000000 03000000 03000000 07000000 02000000 08020000 14000000 02000000 02000000 07000000 01000000 02000000 08000000
+     01000000 03000000 08000000 01000000 08020000 13000000 01000000 08020000 13000000 03000000 01000000 00000000 01000000 FF010000 12000000 01000000
+     01000000 01000000 00000000 00000000 01000000 00000000 06000000 02000000 08000000
+    </schedule>
+                </action>
+                <action name="View" />
+              </results>
+            </run>
+          </result>
+          <endtime>Thu Jun 10 04:53:36 2010 PM</endtime>
+          <action name="Repro Last Schedule" />
+          <schedule format="hex">
+   01000000 01000000 09000000 01000000 FF010000 01000000 01000000 FF010000 12000000 01000000 02000000 05000000 01000000 03000000 05000000 01000000
+   02000000 09000000 01000000 03000000 09000000 02000000 02000000 06000000 02000000 08020000 13000000 03000000 03000000 06000000 03000000 01000000
+   00000000 01000000 FF010000 12000000 01000000 01000000 01000000 00000000 00000000 01000000 00000000 06000000 02000000 08000000</schedule>
+          <action name="Repeat" />
+        </results>
+      </run>
+    </test>
+  </testlist>
+  <taskcounter>2</taskcounter>
+</session>

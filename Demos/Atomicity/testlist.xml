@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testlist name="SimpleBank" xmlns="http://research.microsoft.com/chess">
+
+  <build>
+    <startdir>@</startdir>
+    <executable>msbuild</executable>
+    <arg>Atomicity.sln</arg>
+    <arg>/p:Configuration=Debug</arg>
+  </build>
+
+  <!-- We use just a single test in this example -->
+  <test name="Test1">
+    <startdir>TestApp\bin\Debug</startdir>
+    <executable>mchess</executable>
+    <carg>TestApp.exe</carg>
+    <carg>/it:Atomicity.Account</carg>
+    <carg>/it:Utils.Parallel</carg>
+    <carg>/volatile</carg>
+  </test>
+
+</testlist>

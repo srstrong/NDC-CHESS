@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<results xmlns="http://research.microsoft.com/chess">
+  <starttime>Mon Jun 14 01:03:32 2010 PM</starttime>
+  <commandline>
+  </commandline>
+  <result>
+    <label>N</label>
+    <description>Search Completed</description>
+  </result>
+  <endtime>Mon Jun 14 01:03:33 2010 PM</endtime>
+</results>

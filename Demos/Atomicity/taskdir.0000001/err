@@ -1,0 +1,8 @@
+WARNING: Race Detection Disabled. Races May Hide Bugs.
+Tests: 1 Threads: 3 ExecSteps: 18 Time: 0.109
+Tests: 2 Threads: 3 ExecSteps: 18 Time: 0.125
+Tests: 3 Threads: 3 ExecSteps: 18 Time: 0.141
+Tests: 4 Threads: 3 ExecSteps: 18 Time: 0.156
+
+***************** CHESS assertion ***********************
+ChessTest.Run returned false.
